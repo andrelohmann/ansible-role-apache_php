@@ -18,13 +18,13 @@
     path: "/etc/php/{{ php_version }}/apache2/php.ini"
     regexp: "^{{ item.key }} = "
     line: "{{ item.key }} = {{ item.value }}"
-  with_items: "{{ php_additional_packages }}"
+  with_items: "{{ php_ini_settings }}"
 
 - name: update php.ini
   lineinfile:
     path: "/etc/php/{{ php_version }}/cli/php.ini"
     regexp: "^{{ item.key }} = "
     line: "{{ item.key }} = {{ item.value }}"
-  with_items: "{{ php_additional_packages }}"
+  with_items: "{{ php_ini_settings }}"
 
 ...
