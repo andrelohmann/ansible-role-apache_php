@@ -23,7 +23,7 @@ install:
 
 script:
   # install galaxy role
-  - ansible-galaxy install andrelohmann.php_sury
+  - ansible-galaxy install andrelohmann.sury_php
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
   # Run the role/playbook with ansible-playbook.
