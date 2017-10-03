@@ -13,6 +13,15 @@
   - apache2
   - "libapache2-mod-php{{ php_version }}"
 
+- name: install additional packages
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    allow_unauthenticated: yes
+    autoclean: yes
+    autoremove: yes
+  with_items: "{{ php_additional_packages }}"
+
 - name: update php.ini
   lineinfile:
     path: "/etc/php/{{ php_version }}/apache2/php.ini"
