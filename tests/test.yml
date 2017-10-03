@@ -24,5 +24,6 @@
     - geoip-bin
 
   roles:
+  - andrelohmann.sury_php
   - ansible-role-apache_php
 ...
