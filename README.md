@@ -15,7 +15,7 @@ Example Playbook
 
     - hosts: all
       roles:
-         - { role: andrelohmann.ansible-role-apache_php }
+         - { role: andrelohmann.apache_php }
 
 License
 -------
