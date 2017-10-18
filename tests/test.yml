@@ -22,6 +22,9 @@
     - php-imagick
     - php-geoip
     - geoip-bin
+    apache_additional_modules:
+    - name: rewrite
+      state: present
 
   roles:
   - andrelohmann.sury_php
