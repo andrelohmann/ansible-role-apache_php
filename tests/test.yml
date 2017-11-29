@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   become: true
-  become_user: root
+  become_method: sudo
   vars:
     php_ini_settings:
     - key: post_max_size

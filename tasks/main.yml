@@ -7,6 +7,8 @@
     allow_unauthenticated: yes
     autoclean: yes
     autoremove: yes
+    update_cache: yes
+    cache_valid_time: 3600
   with_items:
   - "php{{ php_version }}"
   - "php{{ php_version }}-cli"
@@ -20,6 +22,8 @@
     allow_unauthenticated: yes
     autoclean: yes
     autoremove: yes
+    update_cache: yes
+    cache_valid_time: 3600
   with_items: "{{ php_additional_packages }}"
 
 - name: update php.ini
