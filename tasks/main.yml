@@ -4,7 +4,7 @@
   apt:
     pkg: "{{ item }}"
     state: latest
-    allow_unauthenticated: yes
+    dpkg_options: 'force-confnew,force-confdef'
     autoclean: yes
     autoremove: yes
     update_cache: yes
@@ -19,7 +19,7 @@
   apt:
     pkg: "{{ item }}"
     state: latest
-    allow_unauthenticated: yes
+    dpkg_options: 'force-confnew,force-confdef'
     autoclean: yes
     autoremove: yes
     update_cache: yes
