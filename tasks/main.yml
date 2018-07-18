@@ -46,4 +46,11 @@
     name: "{{ item.name }}"
   with_items: "{{ apache_additional_modules }}"
 
+- name: Remove default vhost in sites-enabled.
+  file:
+    path: "/etc/apache2/sites-enabled/000-default.conf"
+    state: absent
+  notify: restart apache
+  when: apache_remove_default_vhost
+
 ...

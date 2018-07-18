@@ -37,6 +37,7 @@ The following can be set in group_vars/host_vars
     apache_additional_modules:
     - name: rewrite
       state: present
+    apache_remove_default_vhost: true
 
 Example Playbook
 ----------------

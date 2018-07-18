@@ -3,4 +3,5 @@ php_version: '7.1'
 php_ini_settings: []
 php_additional_packages: []
 apache_additional_modules: []
+apache_remove_default_vhost: false
 ...
