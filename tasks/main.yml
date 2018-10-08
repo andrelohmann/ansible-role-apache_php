@@ -2,29 +2,29 @@
 
 - name: install required packages
   apt:
-    pkg: "{{ item }}"
+    name: "{{ packages }}"
     state: latest
     dpkg_options: 'force-confnew,force-confdef'
     autoclean: yes
     autoremove: yes
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-  - "php{{ php_version }}"
-  - "php{{ php_version }}-cli"
-  - apache2
-  - "libapache2-mod-php{{ php_version }}"
+  vars:
+    packages:
+    - "php{{ php_version }}"
+    - "php{{ php_version }}-cli"
+    - apache2
+    - "libapache2-mod-php{{ php_version }}"
 
 - name: install additional packages
   apt:
-    pkg: "{{ item }}"
+    name: "{{ php_additional_packages }}"
     state: latest
     dpkg_options: 'force-confnew,force-confdef'
     autoclean: yes
     autoremove: yes
     update_cache: yes
     cache_valid_time: 3600
-  with_items: "{{ php_additional_packages }}"
 
 - name: update php.ini
   lineinfile:
