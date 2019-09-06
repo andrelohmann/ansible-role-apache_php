@@ -13,12 +13,11 @@
     - key: max_input_time
       value: 600
     php_additional_packages:
-    - php7.1-gd
-    - php7.1-mysql
-    - php7.1-curl
-    - php7.1-mcrypt
-    - php7.1-tidy
-    - php7.1-zip
+    - php7.2-gd
+    - php7.2-mysql
+    - php7.2-curl
+    - php7.2-tidy
+    - php7.2-zip
     - php-imagick
     - php-geoip
     - geoip-bin

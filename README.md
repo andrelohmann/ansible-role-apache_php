@@ -44,7 +44,7 @@ Example Playbook
 
     - hosts: all
       roles:
-         - { role: andrelohmann.apache_php }
+         - andrelohmann.apache_php
 
 License
 -------
