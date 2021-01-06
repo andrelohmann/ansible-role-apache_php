@@ -3,7 +3,7 @@
   become: true
   become_method: sudo
   vars:
-    php_ini_settings:
+    apache_php_ini_settings:
     - key: post_max_size
       value: 512M
     - key: upload_max_filesize
@@ -12,7 +12,7 @@
       value: 600
     - key: max_input_time
       value: 600
-    php_additional_packages:
+    sury_php_packages:
     - php7.2-gd
     - php7.2-mysql
     - php7.2-curl
@@ -21,7 +21,7 @@
     - php-imagick
     - php-geoip
     - geoip-bin
-    apache_additional_modules:
+    apache_php_additional_modules:
     - name: rewrite
       state: present
 

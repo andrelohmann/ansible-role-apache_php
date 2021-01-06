@@ -15,7 +15,8 @@ Role Variables
 
 The following can be set in group_vars/host_vars
 
-    php_ini_settings:
+    apache_php_version: 7.1
+    apache_php_ini_settings:
     - key: post_max_size
       value: 512M
     - key: upload_max_filesize
@@ -24,7 +25,7 @@ The following can be set in group_vars/host_vars
       value: 600
     - key: max_input_time
       value: 600
-    php_additional_packages:
+    sury_php_packages:
     - php7.1-gd
     - php7.1-mysql
     - php7.1-curl
@@ -34,17 +35,17 @@ The following can be set in group_vars/host_vars
     - php-imagick
     - php-geoip
     - geoip-bin
-    apache_additional_modules:
+    apache_php_additional_modules:
     - name: rewrite
       state: present
-    apache_remove_default_vhost: true
+    apache_php_remove_default_vhost: true
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
-         - andrelohmann.apache_php
+      - andrelohmann.apache_php
 
 License
 -------

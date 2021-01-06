@@ -1,7 +1,6 @@
 ---
-php_version: '7.2'
-php_ini_settings: []
-php_additional_packages: []
-apache_additional_modules: []
-apache_remove_default_vhost: false
+apache_php_version: '7.2'
+apache_php_ini_settings: []
+apache_php_additional_modules: []
+apache_php_remove_default_vhost: false
 ...
