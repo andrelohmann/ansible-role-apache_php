@@ -1,13 +1,13 @@
 ---
 
-- name: install required packages
-  apt:
+- name: APT | Install required packages
+  ansible.builtin.apt:
     name: "{{ packages }}"
-    state: latest
+    state: present
     dpkg_options: 'force-confnew,force-confdef'
-    autoclean: yes
-    autoremove: yes
-    update_cache: yes
+    autoclean: true
+    autoremove: true
+    update_cache: true
     cache_valid_time: 3600
   vars:
     packages:
@@ -16,31 +16,31 @@
     - apache2
     - "libapache2-mod-php{{ apache_php_version }}"
 
-- name: update php.ini
-  lineinfile:
+- name: Update php.ini
+  ansible.builtin.lineinfile:
     path: "/etc/php/{{ apache_php_version }}/apache2/php.ini"
     regexp: "^{{ item.key }} = "
     line: "{{ item.key }} = {{ item.value }}"
   with_items: "{{ apache_php_ini_settings }}"
 
-- name: update php.ini
-  lineinfile:
+- name: Update php.ini
+  ansible.builtin.lineinfile:
     path: "/etc/php/{{ apache_php_version }}/cli/php.ini"
     regexp: "^{{ item.key }} = "
     line: "{{ item.key }} = {{ item.value }}"
   with_items: "{{ apache_php_ini_settings }}"
 
-- name: enable additional modules
-  apache2_module:
+- name: Enable additional modules
+  community.general.apache2_module:
     state: "{{ item.state }}"
     name: "{{ item.name }}"
   with_items: "{{ apache_php_additional_modules }}"
 
 - name: Remove default vhost in sites-enabled.
-  file:
+  ansible.builtin.file:
     path: "/etc/apache2/sites-enabled/000-default.conf"
     state: absent
-  notify: restart apache
+  notify: Restart apache
   when: apache_php_remove_default_vhost
 
 ...
