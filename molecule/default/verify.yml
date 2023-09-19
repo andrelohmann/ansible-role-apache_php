@@ -1,0 +1,57 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+
+  - name: APT | Install required packages
+    ansible.builtin.apt:
+      name: "{{ packages }}"
+      state: present
+      dpkg_options: 'force-confnew,force-confdef'
+      autoclean: true
+      autoremove: true
+      update_cache: true
+      cache_valid_time: 3600
+    vars:
+      packages:
+      - net-tools
+
+  - name: Run php --version
+    ansible.builtin.shell: php --version
+    args:
+      executable: /bin/bash
+    register: php_version
+
+  - name: dump php_version
+    ansible.builtin.debug:
+      var: php_version
+
+  - name: Assert php_version to include PHP 8.2.
+    ansible.builtin.assert:
+      that: "'PHP 8.2.' in php_version.stdout"
+
+  - name: Run netstat
+    ansible.builtin.shell: netstat -anp | grep apache
+    args:
+      executable: /bin/bash
+    register: apache_port
+
+  - name: dump apache_port
+    ansible.builtin.debug:
+      var: apache_port
+
+  - name: Assert apache_port to include :80
+    ansible.builtin.assert:
+      that: "':80' in apache_port.stdout"
+
+  - name: Assert apache_port to include LISTEN
+    ansible.builtin.assert:
+      that: "'LISTEN' in apache_port.stdout"
+
+  - name: Assert apache_port to include /apache2
+    ansible.builtin.assert:
+      that: "'/apache2' in apache_port.stdout"
+...

@@ -2,24 +2,24 @@
 galaxy_info:
   role_name: apache_php
   author: andrelohmann
+  namespace: andrelohmann
   description: ansible galaxy role to install deb.sury.org php and apache
-  company: smartformer UG
+  company: CloudSails GmbH
 
   license: MIT
 
-  min_ansible_version: 2.7
+  min_ansible_version: "2.11"
 
   platforms:
-    - name: Ubuntu
-      versions:
-      - xenial
-      - bionic
-      - focal
+  - name: Ubuntu
+    versions:
+    - focal
+    - jammy
 
   galaxy_tags:
   - php
   - sury
 
 dependencies:
-- andrelohmann.sury_php
+- role: andrelohmann.sury_php
 ...

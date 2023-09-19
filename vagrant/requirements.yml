@@ -1,0 +1,10 @@
+---
+
+roles:
+- andrelohmann.root_colored_prompt
+- andrelohmann.sury_php
+
+collections:
+- community.general
+
+...
