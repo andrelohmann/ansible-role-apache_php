@@ -2,7 +2,6 @@
 galaxy_info:
   role_name: apache_php
   author: andrelohmann
-  namespace: andrelohmann
   description: ansible galaxy role to install deb.sury.org php and apache
   company: CloudSails GmbH
 
