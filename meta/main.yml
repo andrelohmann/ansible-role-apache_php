@@ -20,5 +20,5 @@ galaxy_info:
   - sury
 
 dependencies:
-- role: andrelohmann.sury_php
+- andrelohmann.sury_php
 ...
