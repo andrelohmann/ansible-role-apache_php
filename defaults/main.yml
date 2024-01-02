@@ -1,6 +1,6 @@
 ---
 
-apache_php_version: '8.2'
+apache_php_version: '8.3'
 apache_php_ini_settings: []
 apache_php_additional_modules: []
 apache_php_remove_default_vhost: false

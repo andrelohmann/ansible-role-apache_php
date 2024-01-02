@@ -14,7 +14,7 @@ This role requires ubuntu
 
 The following can be set in group_vars/host_vars
 
-    apache_php_version: 8.2
+    apache_php_version: 8.3
     apache_php_ini_settings:
     - key: post_max_size
       value: 512M
@@ -25,15 +25,12 @@ The following can be set in group_vars/host_vars
     - key: max_input_time
       value: 600
     sury_php_packages:
-    - php8.2-gd
-    - php8.2-mysql
-    - php8.2-curl
-    - php8.2-mcrypt
-    - php8.2-tidy
-    - php8.2-zip
-    - php-imagick
-    - php-geoip
-    - geoip-bin
+    - php8.3-gd
+    - php8.3-mysql
+    - php8.3-curl
+    - php8.3-mcrypt
+    - php8.3-tidy
+    - php8.3-zip
     apache_php_additional_modules:
     - name: rewrite
       state: present
