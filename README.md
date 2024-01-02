@@ -28,7 +28,6 @@ The following can be set in group_vars/host_vars
     - php8.3-gd
     - php8.3-mysql
     - php8.3-curl
-    - php8.3-mcrypt
     - php8.3-tidy
     - php8.3-zip
     apache_php_additional_modules:
