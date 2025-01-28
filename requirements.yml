@@ -1,7 +1,7 @@
 ---
 roles:
-- andrelohmann.sury_php
+- name: andrelohmann.sury_php
 
 collections:
-- community.general
+- name: community.general
 ...
