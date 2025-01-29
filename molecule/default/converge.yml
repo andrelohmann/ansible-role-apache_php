@@ -27,7 +27,7 @@
       state: present
     apache_php_remove_default_vhost: true
   roles:
-  - name: andrelohmann.sury_php
+  - role: andrelohmann.sury_php
   tasks:
   - name: Include andrelohmann.apache_php
     ansible.builtin.include_role:
