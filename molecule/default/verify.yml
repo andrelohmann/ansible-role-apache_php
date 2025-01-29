@@ -39,6 +39,7 @@
     args:
       executable: /bin/bash
     register: apache_port
+    changed_when: false
 
   - name: Dump apache_port
     ansible.builtin.debug:
