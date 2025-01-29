@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   become: true
-  become_method: sudo
+  become_method: ansible.builtin.sudo
   vars:
     sury_php_packages:
     - php8.3
@@ -27,9 +27,9 @@
       state: present
     apache_php_remove_default_vhost: true
   roles:
-  - andrelohmann.sury_php
+  - role: andrelohmann.sury_php
   tasks:
-  - name: "Include andrelohmann.apache_php"
-    include_role:
+  - name: Include andrelohmann.apache_php
+    ansible.builtin.include_role:
       name: "andrelohmann.apache_php"
 ...

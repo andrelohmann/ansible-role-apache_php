@@ -24,8 +24,9 @@
     args:
       executable: /bin/bash
     register: php_version
+    changed_when: false
 
-  - name: dump php_version
+  - name: Dump php_version
     ansible.builtin.debug:
       var: php_version
 
@@ -34,12 +35,13 @@
       that: "'PHP 8.3.' in php_version.stdout"
 
   - name: Run netstat
-    ansible.builtin.shell: netstat -anp | grep apache
+    ansible.builtin.shell: set -o pipefail && netstat -anp | grep apache
     args:
       executable: /bin/bash
     register: apache_port
+    changed_when: false
 
-  - name: dump apache_port
+  - name: Dump apache_port
     ansible.builtin.debug:
       var: apache_port
 
